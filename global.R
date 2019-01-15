@@ -1,3 +1,10 @@
+# Library判定とインストール ####
+
+targetPackages <- c('shiny', 'shinythemes', "multcomp", "plater", "DT", "broom", "magrittr", "cowplot", "tidyverse") 
+newPackages <- targetPackages[!(targetPackages %in% installed.packages()[,"Package"])]
+if(length(newPackages)) install.packages(newPackages, repos = "http://cran.rstudio.com")
+for(package in targetPackages) library(package, character.only = T)
+
 # Library ####
 library(shiny)
 library(shinythemes)
